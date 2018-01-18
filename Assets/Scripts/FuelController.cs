@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FuelController : MonoBehaviour {
 
-    public float fuelAmount;
+    public int fuelAmount;
 
 	// Use this for initialization
 	void Start () {

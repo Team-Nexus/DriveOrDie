@@ -1,6 +1,7 @@
 ﻿
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -12,14 +13,18 @@ public class PlayerController : MonoBehaviour
     public float playerSpeed;
     private Vector2 currentSpeed;
 
-
-    public float fuelLeft;
-    public float fuelUsage;
+    public int fuelLeft;
+    public int fuelUsage;
     private Rigidbody2D rigidBody;
+
+    public Text uiTextFuelLeft;
+    public Text uiTextSpeed;
 
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
+        uiTextFuelLeft.text = fuelLeft.ToString();
+        uiTextSpeed.text = GetPlayerSpeed().ToString();
     }
     void Update()
     {
@@ -30,6 +35,9 @@ public class PlayerController : MonoBehaviour
                 //Debug.Log("Fuel left:" + fuelLeft);
             }
         }
+
+        uiTextSpeed.text = GetPlayerSpeed().ToString();
+        uiTextFuelLeft.text = fuelLeft.ToString();
     }
     void FixedUpdate()
     {
@@ -91,7 +99,7 @@ public class PlayerController : MonoBehaviour
         GetPlayerSpeed();
     }
 
-    public void AddFuel(float fuelAmount)
+    public void AddFuel(int fuelAmount)
     {
         fuelLeft = fuelLeft + fuelAmount;
     }
