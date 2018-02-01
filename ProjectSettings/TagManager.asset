@@ -39,6 +39,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Void
+    uniqueID: 2453663287
+    locked: 0
+  - name: Roads
+    uniqueID: 1313872373
+    locked: 0
+  - name: Trails
+    uniqueID: 2484496677
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
