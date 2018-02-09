@@ -22,6 +22,14 @@ GameObject:
   - component: {fileID: 50416412157555550}
   - component: {fileID: 212817799306250366}
   - component: {fileID: 60180708647963736}
+  - component: {fileID: 114560306065241144}
+  - component: {fileID: 114746440516132852}
+  - component: {fileID: 114686594782964222}
+  - component: {fileID: 114536428042084000}
+  - component: {fileID: 114660405563108642}
+  - component: {fileID: 114961673784190250}
+  - component: {fileID: 114113440693927498}
+  - component: {fileID: 114476911919273858}
   m_Layer: 0
   m_Name: PoliceCar
   m_TagString: Untagged
@@ -36,7 +44,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1278421316541920}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 3.2, y: -56.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -54,8 +62,8 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 2
-  m_LinearDrag: 15
-  m_AngularDrag: 15
+  m_LinearDrag: 0.8
+  m_AngularDrag: 2.8
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -86,45 +94,331 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.56333333, y: -1.76}
-      - {x: 0.56333333, y: -1.7666667}
-      - {x: 0.71000004, y: -1.7666667}
-      - {x: 0.73, y: -1.7466667}
-      - {x: 0.7633334, y: -1.6733334}
-      - {x: 0.77000004, y: -1.6466668}
-      - {x: 0.79, y: -1.6}
-      - {x: 0.83000004, y: -1.28}
-      - {x: 0.8566667, y: -1.1866667}
-      - {x: 0.8566667, y: -0.81333333}
-      - {x: 0.8233334, y: -0.74}
-      - {x: 0.8233334, y: -0.4466667}
-      - {x: 0.81666666, y: -0.43333334}
-      - {x: 0.81666666, y: 0.6666667}
-      - {x: 0.81, y: 0.7866667}
-      - {x: 0.77000004, y: 1.3933333}
-      - {x: 0.75666666, y: 1.5333334}
-      - {x: 0.72333336, y: 1.6866667}
-      - {x: 0.67, y: 1.7733334}
-      - {x: -0.63, y: 1.7733334}
-      - {x: -0.6766667, y: 1.7666667}
-      - {x: -0.7166667, y: 1.7066667}
-      - {x: -0.7366667, y: 1.6066667}
-      - {x: -0.77000004, y: 1.4666667}
-      - {x: -0.7766667, y: 1.3933333}
-      - {x: -0.7966667, y: 1.1066667}
-      - {x: -0.8233334, y: 0.6666667}
-      - {x: -0.83000004, y: -0.4466667}
-      - {x: -0.8233334, y: -0.74666667}
-      - {x: -0.8566667, y: -0.8066667}
-      - {x: -0.86333334, y: -0.86}
-      - {x: -0.86333334, y: -1.1800001}
-      - {x: -0.78333336, y: -1.6333333}
-      - {x: -0.7633334, y: -1.7133334}
-      - {x: -0.72333336, y: -1.7666667}
-      - {x: -0.57, y: -1.7666667}
-      - {x: -0.57, y: -1.76}
-      - {x: -0.01, y: -1.7666667}
-      - {x: 0.023333333, y: -1.7666667}
+    - - {x: 0.67782813, y: 1.7529957}
+      - {x: 0.7540095, y: 1.4738187}
+      - {x: 0.8027479, y: 0.65823543}
+      - {x: 0.81010634, y: -0.748913}
+      - {x: 0.8439026, y: -0.83033967}
+      - {x: 0.8491173, y: -1.174537}
+      - {x: 0.8106384, y: -1.2762835}
+      - {x: 0.7903899, y: -1.5416597}
+      - {x: 0.76947963, y: -1.6666845}
+      - {x: 0.70679075, y: -1.7545593}
+      - {x: -0.71518165, y: -1.7549837}
+      - {x: -0.7624191, y: -1.6690542}
+      - {x: -0.791571, y: -1.5430824}
+      - {x: -0.8148196, y: -1.2871522}
+      - {x: -0.8527987, y: -1.1571168}
+      - {x: -0.85125184, y: -0.82334614}
+      - {x: -0.8192865, y: -0.7365874}
+      - {x: -0.8178864, y: 0.64935607}
+      - {x: -0.76132965, y: 1.487633}
+      - {x: -0.6778925, y: 1.753752}
+      - {x: -0.6003073, y: 1.7682583}
+      - {x: 0.5367854, y: 1.7708828}
+--- !u!114 &114113440693927498
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1278421316541920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 336943168, guid: b26ce4b80a42c6441af375612ff69ca2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  environmentFoldout: 0
+  SteeringPerceiver: {fileID: 0}
+  ObjectTag: Untagged
+  Range: -1
+  rangeGizmo:
+    Enabled: 0
+    Color: {r: 0.24705882, g: 0.79607844, b: 0.25409058, a: 1}
+--- !u!114 &114476911919273858
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1278421316541920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -621085426, guid: b26ce4b80a42c6441af375612ff69ca2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Torque: 2.1
+  Speed: 64
+  ObjectiveAsSpeed: 0
+  Context: {fileID: 0}
+  Body2D: {fileID: 50416412157555550}
+--- !u!114 &114536428042084000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1278421316541920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1062805814, guid: b26ce4b80a42c6441af375612ff69ca2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Order: 0
+  Label: SeekInterest
+  initialized: 1
+  tabState:
+    tab0: 0
+    tab1: 0
+    tab2: 0
+    tab3: 0
+    tab4: 0
+  advancedInspector: 0
+  FilteredEnvironments:
+  - EnvInterest
+  GameObjects: []
+  velocityGizmo:
+    Enabled: 0
+    Color: {r: 0.5, g: 0.5, b: 1, a: 1}
+    DirectionScale: 1
+    PointSize: 0.2
+  steeringFoldout: 1
+  innerRadiusGizmo:
+    Enabled: 0
+    Color: {r: 0.59607846, g: 1, b: 0.5686275, a: 1}
+  outerRadiusGizmo:
+    Enabled: 0
+    Color: {r: 0.2627451, g: 0.79607844, b: 0.24705882, a: 1}
+  radiusSteeringFoldout: 1
+  Seek:
+    TargetObjective: 0
+    MagnitudeMultiplier: 1
+    SensitivityOffset: 0
+    ValueWriting: 0
+    LayerBlending: 0
+    LayerNormalization: 0
+    ValueMapping: 2
+    UseSignificance: 1
+    UseSensorProjection: 1
+    VectorProjection: 0
+    PresetVelocity: 0
+    Prediction: 0
+    PredictionMagnitude: 0
+    InnerRadius: 0
+    OuterRadius: 500
+    RadiusMapping: 2
+    ForEachReceptor: 0
+--- !u!114 &114560306065241144
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1278421316541920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1225004217, guid: b26ce4b80a42c6441af375612ff69ca2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UpdateFrequency: 20
+  Threaded: 0
+  SensorShared: 1
+  Sensor: {fileID: 11400000, guid: 660217a5981868e4d9423404fced5257, type: 2}
+  objectiveLabels:
+  - Player
+  - Civilian
+  - Building
+  context:
+    minObjectives: 000101
+    normObjectives: 010101
+    constraintSolver:
+      Unlimited: 0
+      Epsilons:
+      - 0
+      - 0.4
+      - 0.25
+  selfObject: {fileID: 0}
+  indicatorGizmo:
+    Enabled: 0
+    Wireframe: 0
+    ShowReceptors: 0
+    ShowConstraints: 0
+    DrawDoubleSided: 1
+    ResolutionThreshold: 32
+    CustomScale: 1
+    Spacing: 1
+    SolutionColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+    InterpolatedSolutionColor: {r: 1, g: 0.6, b: 0.011764706, a: 1}
+    ConstraintColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
+    ReceptorColor: {r: 0.7058824, g: 0.7058824, b: 0.7058824, a: 1}
+    LineColor: {r: 0.7058824, g: 0.7058824, b: 0.7058824, a: 1}
+    ObjectiveColors:
+    - {r: 0.2627451, g: 0.79607844, b: 0.24705882, a: 1}
+    - {r: 1, g: 0.23529412, b: 0.23529412, a: 1}
+    - {r: 0.39215687, g: 0.62352943, b: 0.8392157, a: 1}
+  tabState:
+    tab0: 0
+    tab1: 0
+    tab2: 0
+    tab3: 0
+    tab4: 0
+  objectiveFoldout: 1
+--- !u!114 &114660405563108642
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1278421316541920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1062805814, guid: b26ce4b80a42c6441af375612ff69ca2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Order: 0
+  Label: DodgeCivilian
+  initialized: 1
+  tabState:
+    tab0: 0
+    tab1: 0
+    tab2: 0
+    tab3: 0
+    tab4: 0
+  advancedInspector: 0
+  FilteredEnvironments:
+  - EnvCivilian
+  GameObjects: []
+  velocityGizmo:
+    Enabled: 0
+    Color: {r: 0.5, g: 0.5, b: 1, a: 1}
+    DirectionScale: 1
+    PointSize: 0.2
+  steeringFoldout: 1
+  innerRadiusGizmo:
+    Enabled: 0
+    Color: {r: 0.59607846, g: 1, b: 0.5686275, a: 1}
+  outerRadiusGizmo:
+    Enabled: 0
+    Color: {r: 0.2627451, g: 0.79607844, b: 0.24705882, a: 1}
+  radiusSteeringFoldout: 1
+  Seek:
+    TargetObjective: 1
+    MagnitudeMultiplier: 1
+    SensitivityOffset: 0
+    ValueWriting: 0
+    LayerBlending: 0
+    LayerNormalization: 0
+    ValueMapping: 2
+    UseSignificance: 1
+    UseSensorProjection: 1
+    VectorProjection: 0
+    PresetVelocity: 0
+    Prediction: 0
+    PredictionMagnitude: 0
+    InnerRadius: 0
+    OuterRadius: 20
+    RadiusMapping: 2
+    ForEachReceptor: 0
+--- !u!114 &114686594782964222
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1278421316541920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1187903073, guid: b26ce4b80a42c6441af375612ff69ca2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Order: 1000
+  Label: 
+  initialized: 1
+  tabState:
+    tab0: 0
+    tab1: 0
+    tab2: 0
+    tab3: 0
+    tab4: 0
+  advancedInspector: 0
+  Stabilization:
+    TargetObjective: 0
+    AngleMapping: 2
+    MaxIncrease: 0.2
+    MaxAngle: 45
+--- !u!114 &114746440516132852
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1278421316541920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -561398845, guid: b26ce4b80a42c6441af375612ff69ca2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Order: 2000
+  Label: 
+  initialized: 1
+  tabState:
+    tab0: 0
+    tab1: 0
+    tab2: 0
+    tab3: 0
+    tab4: 0
+  advancedInspector: 0
+  PlanarInterpolation:
+    TargetObjective: 0
+    Constraint: 1
+--- !u!114 &114961673784190250
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1278421316541920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1062805814, guid: b26ce4b80a42c6441af375612ff69ca2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Order: 0
+  Label: DodgeBuilding
+  initialized: 1
+  tabState:
+    tab0: 0
+    tab1: 0
+    tab2: 0
+    tab3: 0
+    tab4: 0
+  advancedInspector: 0
+  FilteredEnvironments:
+  - EnvBuilding
+  GameObjects: []
+  velocityGizmo:
+    Enabled: 0
+    Color: {r: 0.5, g: 0.5, b: 1, a: 1}
+    DirectionScale: 1
+    PointSize: 0.2
+  steeringFoldout: 1
+  innerRadiusGizmo:
+    Enabled: 0
+    Color: {r: 0.59607846, g: 1, b: 0.5686275, a: 1}
+  outerRadiusGizmo:
+    Enabled: 0
+    Color: {r: 0.2627451, g: 0.79607844, b: 0.24705882, a: 1}
+  radiusSteeringFoldout: 1
+  Seek:
+    TargetObjective: 2
+    MagnitudeMultiplier: 1
+    SensitivityOffset: 0
+    ValueWriting: 0
+    LayerBlending: 0
+    LayerNormalization: 0
+    ValueMapping: 2
+    UseSignificance: 1
+    UseSensorProjection: 1
+    VectorProjection: 0
+    PresetVelocity: 0
+    Prediction: 0
+    PredictionMagnitude: 0
+    InnerRadius: 0
+    OuterRadius: 20
+    RadiusMapping: 2
+    ForEachReceptor: 0
 --- !u!212 &212817799306250366
 SpriteRenderer:
   m_ObjectHideFlags: 1

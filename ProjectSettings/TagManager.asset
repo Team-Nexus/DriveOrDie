@@ -14,10 +14,10 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
+  - Interest
+  - Civilian
+  - Building
+  - Roads
   - 
   - 
   - 
@@ -47,6 +47,9 @@ TagManager:
     locked: 0
   - name: Trails
     uniqueID: 2484496677
+    locked: 0
+  - name: PoliceLight
+    uniqueID: 2858579159
     locked: 0
   - name: Default
     uniqueID: 0
