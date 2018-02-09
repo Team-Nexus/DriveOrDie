@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
+    bool dontUseTouch;
     public float acceleration;
     public float revAcceleration;
     public float steering;
@@ -25,6 +25,19 @@ public class PlayerController : MonoBehaviour
         rigidBody = GetComponent<Rigidbody2D>();
         uiTextFuelLeft.text = fuelLeft.ToString();
         uiTextSpeed.text = GetPlayerSpeed().ToString();
+
+        //check if our current system info equals a desktop
+        if (SystemInfo.deviceType == DeviceType.Desktop)
+        {
+            //we are on a desktop device, so don't use touch
+            dontUseTouch = true;
+        }
+        //if it isn't a desktop, lets see if our device is a handheld device aka a mobile device
+        else if (SystemInfo.deviceType == DeviceType.Handheld)
+        {
+            //we are on a mobile device, so lets use touch input
+            dontUseTouch = false;
+        }
     }
     void Update()
     {
@@ -41,9 +54,31 @@ public class PlayerController : MonoBehaviour
     }
     void FixedUpdate()
     {
+        //Computer controls
         float horizontal = -Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
+        if (!dontUseTouch)
+        {
+            if (Input.touchCount == 1)
+            {
+                vertical = 1; // Accelerate
+            }
+            else if (Input.touchCount >= 2)
+            {
+                vertical = -1; // Reverse
+            }
+
+            if (Input.GetTouch(0).position.x < (Screen.width / 2) - Screen.width / 5)
+            {
+                horizontal = 1; // turn left
+            }
+            else if (Input.GetTouch(0).position.x > (Screen.width / 2) + Screen.width / 5)
+            {
+                horizontal = -1; // turn right
+            }
+        }
+        
         // IF we have fuel, player can accelerate and reverse
         if (fuelLeft > 0)
         {
@@ -111,3 +146,4 @@ public class PlayerController : MonoBehaviour
     }
 
 }
+
