@@ -87,7 +87,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1866137677410074}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.7, y: -20.2, z: 0}
+  m_LocalPosition: {x: -7.4, y: -32.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4733481529454760}
@@ -155,7 +155,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 24
+  orthographic size: 22
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -288,7 +288,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: 0.75510216
+        value: 0.74796104
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -381,7 +381,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 2
         time: 0
-        value: 0.7653084
+        value: 0.75102234
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -443,12 +443,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   acceleration: 56
   revAcceleration: 18
-  steering: 0.67
-  playerSpeed: 0
+  steering: 0.68
+  steeringTouchMultiplier: 0.0013
+  playerSpeedMax: 32
   fuelLeft: 15000
   fuelUsage: 1
   uiTextFuelLeft: {fileID: 0}
   uiTextSpeed: {fileID: 0}
+  mainCamera: {fileID: 20912942139357070}
+  camZoomMin: 18
+  camZoomMax: 38
 --- !u!124 &124272421687572214
 Behaviour:
   m_ObjectHideFlags: 1

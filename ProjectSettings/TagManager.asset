@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Fuel
+  - Money
   layers:
   - Default
   - TransparentFX

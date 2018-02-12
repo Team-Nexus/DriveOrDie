@@ -24,7 +24,7 @@ public class GameController : MonoBehaviour {
     public Text textPlayerStopTimer;
     public Text textPlayerStopHolder;
 
-
+    public TextMeshProUGUI textPlayerMoney;
     public TextMeshProUGUI textGameTimer;
     public float minutes, seconds;
 
@@ -40,11 +40,15 @@ public class GameController : MonoBehaviour {
 
         gameStartTimerCorrection = gameStartTime;
 
-        Resume();
+        GetPlayerMoney();
+
+        Restart();
 	}
 	
 	// Update is called once per frame
 	void Update () {
+        GetPlayerMoney();
+
         if (gameIsStarting)
         {
             gameStartTime -= Time.deltaTime;
@@ -68,6 +72,7 @@ public class GameController : MonoBehaviour {
             if (playerController.GetPlayerSpeed() <= playerStopSpeedLimit)
             {
                 playerStopped = true;
+                // show stop timer
                 textPlayerStopTimer.enabled = true;
                 textPlayerStopHolder.enabled = true;
                 playerStopTimeLeft -= Time.deltaTime;
@@ -78,37 +83,40 @@ public class GameController : MonoBehaviour {
             if (playerController.GetPlayerSpeed() > playerStopSpeedLimit)
             {
                 playerStopped = false;
+                // if player moves hide stop timer
                 textPlayerStopTimer.enabled = false;
                 textPlayerStopHolder.enabled = false;
                 playerStopTimeLeft = playerStopLimit;
             }
         }
 
+        // IF player has stopped and has not moved stop the game
         if (playerStopped)
         {
             if (playerStopTimeLeft <= 0)
             {
                 Pause();
-
-                // disable player controls and hide timers
-                textGameTimer.enabled = false;
-                textPlayerStopTimer.enabled = false;
-                playerController.enabled = false;
             }
         }
+    }
+
+    public void GetPlayerMoney()
+    {
+        textPlayerMoney.text = PlayerPrefs.GetInt("PlayerMoney").ToString();
     }
 
     public void RestartGame()
     {
         Debug.Log("Restart");
-        Resume();
+        Restart();
         SceneManager.LoadScene("TestMap");
     }
 
     public void ReturnToMenu()
     {
+        PlayerPrefs.Save();
         Debug.Log("Return");
-        Resume();
+        Restart();
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -119,7 +127,7 @@ public class GameController : MonoBehaviour {
         Time.timeScale = 0f;
     }
 
-    private void Resume()
+    private void Restart()
     {
         pauseMenuUI.SetActive(false);
         uiCanvas.SetActive(true);
