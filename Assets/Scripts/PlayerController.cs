@@ -3,28 +3,44 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
+    // vehicle speed and control variables
     bool dontUseTouch;
     public float acceleration;
     public float revAcceleration;
     public float steering;
-    public float playerSpeed;
+    public float steeringTouchMultiplier;
+    float playerSpeed;
+    public float playerSpeedMax;
     private Vector2 currentSpeed;
 
     public int fuelLeft;
     public int fuelUsage;
     private Rigidbody2D rigidBody;
 
+    // player related UI = speed / fuel
     public Text uiTextFuelLeft;
     public Text uiTextSpeed;
+
+    // touch variables
+    float touchArea = Screen.width / 10;
+    float screenHalf = Screen.width / 2;
+
+    // camera variables
+    public Camera mainCamera;
+    public float camZoomMin;
+    public float camZoomMax;
 
     void Start()
     {
         rigidBody = GetComponent<Rigidbody2D>();
         uiTextFuelLeft.text = fuelLeft.ToString();
         uiTextSpeed.text = GetPlayerSpeed().ToString();
+
+        mainCamera.orthographicSize = camZoomMin;
 
         //check if our current system info equals a desktop
         if (SystemInfo.deviceType == DeviceType.Desktop)
@@ -60,6 +76,8 @@ public class PlayerController : MonoBehaviour
 
         if (!dontUseTouch)
         {
+            //textPos.text = "x: " + Input.GetTouch(0).position.x + " y: " + Input.GetTouch(0).position.y;
+
             if (Input.touchCount == 1)
             {
                 vertical = 1; // Accelerate
@@ -69,12 +87,16 @@ public class PlayerController : MonoBehaviour
                 vertical = -1; // Reverse
             }
 
-            if (Input.GetTouch(0).position.x < (Screen.width / 2) - Screen.width / 5)
+            if (Input.GetTouch(0).position.x < screenHalf - touchArea)
             {
+
+                steering = Map(screenHalf, Screen.width, 0, screenHalf, Input.GetTouch(0).position.x) * -steeringTouchMultiplier;
                 horizontal = 1; // turn left
             }
-            else if (Input.GetTouch(0).position.x > (Screen.width / 2) + Screen.width / 5)
+            else if (Input.GetTouch(0).position.x > screenHalf + touchArea)
             {
+
+                steering = Map(0, screenHalf, -600, 0, Input.GetTouch(0).position.x) * steeringTouchMultiplier;
                 horizontal = -1; // turn right
             }
         }
@@ -84,9 +106,11 @@ public class PlayerController : MonoBehaviour
         {
             if (vertical > 0)
             {
-                // Forward
-                Vector2 speed = transform.up * (vertical * acceleration);
-                rigidBody.AddForce(speed);
+                if (GetPlayerSpeed() < playerSpeedMax) {
+                    // Forward
+                    Vector2 speed = transform.up * (vertical * acceleration);
+                    rigidBody.AddForce(speed);
+                }
             }
             else
             {
@@ -131,12 +155,18 @@ public class PlayerController : MonoBehaviour
 
         rigidBody.AddForce(rigidBody.GetRelativeVector(relativeForce));
 
+        if (GetPlayerSpeed() < playerSpeedMax)
+        {
+            mainCamera.orthographicSize = Map(0, playerSpeedMax, camZoomMin, camZoomMax, GetPlayerSpeed());
+        }
+
         GetPlayerSpeed();
     }
 
     public void AddFuel(int fuelAmount)
     {
         fuelLeft = fuelLeft + fuelAmount;
+        rigidBody.AddForce(transform.up * 30, ForceMode2D.Impulse);
     }
 
     public float GetPlayerSpeed()
@@ -145,5 +175,17 @@ public class PlayerController : MonoBehaviour
         return playerSpeed;
     }
 
+    public float Map(float OldMin, float OldMax, float NewMin, float NewMax, float OldValue)
+    {
+
+        float OldRange = (OldMax - OldMin);
+        float NewRange = (NewMax - NewMin);
+        float NewValue = (((OldValue - OldMin) * NewRange) / OldRange) + NewMin;
+
+        return (NewValue);
+    }
+
 }
+
+
 
