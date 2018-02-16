@@ -36,14 +36,14 @@ GameObject:
   m_Component:
   - component: {fileID: 4108237484745270}
   - component: {fileID: 212863085175058304}
-  - component: {fileID: 60963102379003608}
   - component: {fileID: 114900005171296672}
+  - component: {fileID: 58542156043256958}
   m_Layer: 2
   m_Name: Money
   m_TagString: Money
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &4108237484745270
 Transform:
@@ -52,8 +52,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1445810311838960}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.99, y: -18.91, z: 0}
-  m_LocalScale: {x: 7, y: 7, z: 1}
+  m_LocalPosition: {x: -40.71, y: -21.71, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4371952945530832}
   m_Father: {fileID: 0}
@@ -72,8 +72,8 @@ Transform:
   m_Father: {fileID: 4108237484745270}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!60 &60963102379003608
-PolygonCollider2D:
+--- !u!58 &58542156043256958
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -84,27 +84,9 @@ PolygonCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.2, y: 0.2}
-    newSize: {x: 16.26, y: 15.99}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -0.049999997, y: 0.099999994}
-      - {x: -0.099999994, y: 0.044999998}
-      - {x: -0.099999994, y: -0.03}
-      - {x: -0.074999996, y: -0.085}
-      - {x: -0.065, y: -0.099999994}
-      - {x: 0.06, y: -0.099999994}
-      - {x: 0.099999994, y: -0.074999996}
-      - {x: 0.099999994, y: 0.055}
-      - {x: 0.049999997, y: 0.099999994}
+  m_Offset: {x: -0.04, y: -0.04}
+  serializedVersion: 2
+  m_Radius: 1.2
 --- !u!114 &114371879320487034
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -119,7 +101,7 @@ MonoBehaviour:
   version: 1.0.5
   lightMaterial: {fileID: 2100000, guid: 030e6fe2377cc0e4580113016fce2940, type: 2}
   allMeshes: []
-  lightRadius: 0.8
+  lightRadius: 2.2
   lightSegments: 20
   layer:
     serializedVersion: 2
@@ -135,7 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dab205e05b760f043990e8283135e48d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moneyAmount: 1
+  moneyAmount: 30
 --- !u!212 &212863085175058304
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -168,10 +150,10 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1152513495
-  m_SortingLayer: -1
+  m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 0.29098186, g: 0.8602941, b: 0.31846595, a: 1}
+  m_Sprite: {fileID: 21300000, guid: b1357a719a72bae44946be106a48a33c, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
