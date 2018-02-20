@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     public Text uiTextSpeed;
 
     // touch variables
+    float reversalTouchArea = Screen.height / 6;
     float touchArea = Screen.width / 10;
     float screenHalf = Screen.width / 2;
 
@@ -78,13 +79,13 @@ public class PlayerController : MonoBehaviour
         {
             //textPos.text = "x: " + Input.GetTouch(0).position.x + " y: " + Input.GetTouch(0).position.y;
 
-            if (Input.touchCount == 1)
-            {
-                vertical = 1; // Accelerate
-            }
-            else if (Input.touchCount >= 2)
+            if (Input.touchCount == 1 && Input.GetTouch(0).position.y < reversalTouchArea)
             {
                 vertical = -1; // Reverse
+            }
+            else
+            {
+                vertical = 1; // Accelerate
             }
 
             if (Input.GetTouch(0).position.x < screenHalf - touchArea)
